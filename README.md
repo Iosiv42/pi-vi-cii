@@ -3,9 +3,9 @@
 At now, tested only on Linux and probably can run of Unix-like systems.
 
 # Installation
-Install system-wide:
-```bash
-# ./install.sh
+Merely install as python module:
+```sh
+$ python -m pip install .
 ```
 
 # Requirements
@@ -13,12 +13,12 @@ Install system-wide:
 * mediainfo
 
 # How to use
-```bash
+```sh
 $ pi-vi-cii path/to/video
 ```
 
 Example:
-```bash
+```sh
 $ pi-vi-cii bad-apple.mp4
 ```
 

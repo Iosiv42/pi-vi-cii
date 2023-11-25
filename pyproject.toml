@@ -1,0 +1,29 @@
+[project]
+name = "pi-vi-cii"
+version = "0.0.1"
+dependencies = [
+    "ffmpeg-python",
+    "numpy",
+]
+authors = [
+  { name="Iosiv42", email="alkane_church@proton.me" },
+]
+description = "Python script to play videos in terminal."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX",
+]
+
+[project.urls]
+Homepage = "https://github.com/Iosiv42/pi-vi-cii"
+Issues = "https://github.com/Iosiv42/pi-vi-cii/issues"
+
+[project.scripts]
+pi-vi-cii = "pi_vi_cii:main_cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

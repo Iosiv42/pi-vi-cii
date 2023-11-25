@@ -5,10 +5,10 @@ import curses
 import bisect
 from typing import Callable
 
-from globals import W_DENS, W_DENS_KEYS
+from .globals import W_DENS, W_DENS_KEYS
 
 
-class PeriodicActor():
+class PeriodicActor:
     """ Act some function with some periodicity. """
 
     def __init__(self, period: float, func: Callable, *func_args):
@@ -29,17 +29,18 @@ class PeriodicActor():
             time.sleep(delta * (delta >= 0))
 
 
-def w_den_to_char(w_den: float) -> tuple[str, int]:
+def w_den_to_char(w_den: int) -> tuple[str, int]:
     """ Converts white density to char and
         returns char and curses attribute.
     """
 
+    density = w_den / 255
     attr = curses.A_NORMAL
-    if w_den > 0.66:
-        w_den = 1 - w_den
+    if density > 0.66:
+        density = 1 - density
         attr = curses.A_REVERSE
 
-    idx = bisect.bisect_left(W_DENS_KEYS, w_den)
+    idx = bisect.bisect_left(W_DENS_KEYS, density)
     char = W_DENS[W_DENS_KEYS[idx if idx == 0 else idx - 1]]
 
     return char, attr
